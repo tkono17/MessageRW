@@ -1,14 +1,20 @@
 [build-system]
-requires = ["hatchling >= 1.26"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
 name = "message_rw"
-dynamic = ["version"]
-
-dependencies = [
-  "httpx",
-  "gidgethub[httpx]>4.0.0",
-  "django>2.1; os_name != 'nt'",
-  "django>2.0; os_name == 'nt'",
+authors = [
+  {name="Takanori Kono", email="takanori.kono@gmail.com"}
 ]
+dynamic = ["version"]
+version = "v0.0.0"
+requires-python = ">=3.10"
+dependencies = [
+"hatch"
+]
+
+[project.scripts]
+msgrw-server = "message_rw:cli:msgrwServer:main"
+msgrw-client = "message_rw:cli:msgrwClient:main"
+
